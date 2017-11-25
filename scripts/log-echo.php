@@ -6,6 +6,10 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/*
+ * Criei esta classe aqui mesmo apenas
+ * para facilitar a leitura do exemplo
+ */
 class SimpleEchoHandler extends StreamHandler {
 
     public function __construct($level, $dateFormat = "d/m/Y H:i:s") {
@@ -38,11 +42,13 @@ class SimpleEchoHandler extends StreamHandler {
     }
 }
 
-// create a log channel
+//Cria o Logger, que implementa a interface adequada do Monolog
 $log = new Logger('canal');
-$log->pushHandler(new SimpleEchoHandler(\Psr\Log\LogLevel::DEBUG));
+//Configura como manipulador dos logs a nossa classe mais abaixo, que é um tipo de stream handler
+$log->pushHandler(new SimpleEchoHandler(\Psr\Log\LogLevel::INFO));
 
-// add records to the log
-$log->info('Foo', ['banana']);
-$log->warning('Foo');
-$log->error('Bar', ['frutas' => ['banana', 'maca']]);
+header('Content-Type: text/html; charset=utf-8');
+//Adiciona alguns Logs com mensagens de contexto, em diferentes níveis e também com exemplo de uma mensagem com bastante informação.
+$log->info('Mensagem de Informação', ['info' => 'valor']);
+$log->warning('Aviso');
+$log->error('Erro, atenção', ['server' => $_SERVER]);
