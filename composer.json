@@ -1,0 +1,14 @@
+{
+    "name": "konscia/aprendendo-monolog",
+    "description": "Aprendendo a Usar o Monolog",
+    "type": "study",
+    "authors": [
+        {
+            "name": "Kaléu Caminha",
+            "email": "kaleu@vios.com.br"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^1.23"
+    }
+}
