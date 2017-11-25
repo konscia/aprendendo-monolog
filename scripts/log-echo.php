@@ -46,8 +46,3 @@ $log->pushHandler(new SimpleEchoHandler(\Psr\Log\LogLevel::DEBUG));
 $log->info('Foo', ['banana']);
 $log->warning('Foo');
 $log->error('Bar', ['frutas' => ['banana', 'maca']]);
-
-//Pega contendo que foi exibido na tela para usar posteriormente para enviar por email por exemplo.
-$var = ob_get_contents();
-echo "------------------------- / --------------------------<br /><br />";
-echo $var;
